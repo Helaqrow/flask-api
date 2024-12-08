@@ -1,0 +1,15 @@
+chardet
+torch==2.5.1
+transformers
+pandas
+prophet
+numpy
+scikit-learn==1.5.2
+joblib
+nltk
+Flask
+sentencepiece
+gunicorn
+flask-cors
+langdetect
+tf-keras
