@@ -168,4 +168,5 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Run the app without debug mode, specifying host and port
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
