@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .image-container img {
+            width: 75%; /* Limit width to 50% of the container */
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        /* Style for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Remove space between borders */
+            font-size: 1.2em; /* Increase font size */
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center; /* Center-align the content */
+            border: 1px solid #ddd; /* Add borders to the table */
+        }
+
+        th {
+            font-weight: bold; /* Make the header bold */
+            text-transform: uppercase; /* Capitalize the header text */
+            background-color: #f2f2f2; /* Light grey background for headers */
+        }
+
+        td {
+            background-color: #fff; /* White background for table data */
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9; /* Add alternating row colors */
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1; /* Highlight row on hover */
+        }
+    </style>
+</head>
+<body>
+        <!-- Display the sentiment trend forecast image -->
+        <h2>Sentiment Trend Forecast</h2>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='sentiment_trend_forecast.png') }}" alt="Sentiment Trend Forecast">
+        </div>
+        <br/>  
+    <h1>Analysis Results</h1>
+
+    <!-- Display the results table -->
+    {% for table in tables %}
+        <div class="table-container">
+            {{ table|safe }}
+        </div>
+    {% endfor %}
+</body>
+</html>

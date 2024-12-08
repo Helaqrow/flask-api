@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentisonar - Mobile Design</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6f42c1, #00aaff); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* White text color */
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        header nav {
+            display: flex;
+            gap: 25px;
+            flex: 2;
+            justify-content: flex-end;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #00aaff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(90deg, #FF00B8, #004BDD, #8F00FF); /* Gradient from pink to purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-bar-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3); /* Lower opacity for black bar */
+            backdrop-filter: blur(10px); /* Increased blur effect */
+            border-radius: 50px;
+            padding: 15px;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50px;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none; /* Removed the border */
+            border-radius: 30px;
+            background: transparent; /* Transparent background to match the white box */
+            box-shadow: none; /* Removed shadow */
+            outline: none; /* Removed outline */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            background-color: #fff; /* Set background to white when focused */
+        }
+
+        .search-bar input::placeholder {
+            color: #aaa; /* Light grey placeholder */
+            font-style: italic; /* Italicized placeholder */
+        }
+
+        .search-bar .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #333;
+        }
+
+        .fancy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .fancy-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .footer-info {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #ddd;
+        }
+
+        .footer-info p {
+            margin: 0;
+        }
+
+        /* Prediction content (hidden until plot is ready) */
+        #prediction-container {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            max-width: 80%;
+            margin-top: 40px;
+        }
+
+        #prediction-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                max-width: 100%;
+            }
+
+            .search-bar-wrapper {
+                width: 90%;
+                padding: 12px;
+            }
+
+            .fancy-button {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+
+            .search-bar input {
+                max-width: 100%;
+                font-size: 14px;
+            }
+
+            .footer-info {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Sentisonar</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <p>A tool made for Event Rating</p>
+        <h1>Predictive Analysis by<br><span>using Sentisonar</span></h1><br />
+
+        <form action="/search" method="post" class="search-bar-wrapper">
+            <div class="search-bar">
+                <input type="text" id="search_text" name="search_text" placeholder="Search for events..." required>
+                <button type="submit" class="fancy-button">Search</button>
+            </div>
+        </form><br />
+        <div class="footer-info">
+            <p>Please be patient! Prediction may take 5-10 mins to finish.</p>
+        </div>
+    </div>
+
+    <!-- Prediction content (hidden until plot is ready) -->
+    <div id="prediction-container" style="display: { 'block' if plot_ready else 'none' }">
+        <h1>Sentiment Trend Prediction</h1>
+        <img src="{{ plot_url }}" alt="Forecast Plot">
+    </div>
+
+    <script>
+        // Get the search input and icon elements
+        const searchInput = document.getElementById('searchInput');
+        const searchIcon = document.getElementById('searchIcon');
+    
+        // Add an event listener to the input for focus
+        searchInput.addEventListener('focus', () => {
+            // Hide the icon and placeholder text when input is focused
+            searchIcon.style.display = 'none';
+            searchInput.placeholder = '';
+        });
+    
+        // Add an event listener to the input for blur (when focus is lost)
+        searchInput.addEventListener('blur', () => {
+            // Show the icon and placeholder text again when input loses focus
+            searchIcon.style.display = 'inline';
+            searchInput.placeholder = 'Search';
+        });
+    </script>
+</body>
+</html>

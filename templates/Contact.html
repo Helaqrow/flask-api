@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentisonar - Contact</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6f42c1, #00aaff); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* White text color */
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        header nav {
+            display: flex;
+            gap: 25px;
+            flex: 2;
+            justify-content: flex-end;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #00aaff;
+        }
+
+        /* Contact Page Hero Section */
+        .contact-hero {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .contact-hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .contact-hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Info Section - Grid */
+        .contact-info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .contact-info .info-label {
+            font-weight: bold;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #ddd;
+        }
+
+        .footer-info p {
+            margin: 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 24px;
+            }
+
+            .contact-hero p {
+                font-size: 14px;
+            }
+
+            .contact-info {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .contact-info h2 {
+                font-size: 20px;
+            }
+
+            .footer-info {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Sentisonar</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="contact-hero">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Get in touch with any of our team members below.</p>
+    </div>
+
+    <div class="contact-info-container">
+        <!-- Contact 1 -->
+        <div class="contact-info">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture 1">
+            <h2>John Doe</h2>
+            <p class="info-label">Email:</p>
+            <p>johndoe@example.com</p>
+            <p class="info-label">Cellphone:</p>
+            <p>(123) 456-7890</p>
+        </div>
+
+        <!-- Contact 2 -->
+        <div class="contact-info">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture 2">
+            <h2>Jane Smith</h2>
+            <p class="info-label">Email:</p>
+            <p>janesmith@example.com</p>
+            <p class="info-label">Cellphone:</p>
+            <p>(234) 567-8901</p>
+        </div>
+
+        <!-- Contact 3 -->
+        <div class="contact-info">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture 3">
+            <h2>Mark Johnson</h2>
+            <p class="info-label">Email:</p>
+            <p>markjohnson@example.com</p>
+            <p class="info-label">Cellphone:</p>
+            <p>(345) 678-9012</p>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p>Feel free to reach out for more information or if you have any questions.</p>
+    </div>
+
+</body>
+</html>
