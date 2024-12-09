@@ -8,8 +8,6 @@ scikit-learn==1.5.2
 joblib
 nltk
 Flask
-sentencepiece
 gunicorn
-flask-cors
 langdetect
 tf-keras
