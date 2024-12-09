@@ -126,6 +126,20 @@ def home():
     
     return render_template('index.html')
 
+@app.route('/aboutus')
+def aboutus():
+    # Cleanup files when the app loads
+    cleanup_files()
+    
+    return render_template('Aboutus.html')
+
+@app.route('/Contact')
+def contact():
+    # Cleanup files when the app loads
+    cleanup_files()
+    
+    return render_template('Contact.html')
+
 
 @app.route('/search', methods=['POST'])
 def search():

@@ -15,7 +15,8 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            color: #fff; /* White text color */
+            color: #fff;
+            box-sizing: border-box;
         }
 
         header {
@@ -70,10 +71,9 @@
 
         .hero h1 span {
             display: block;
-            background: linear-gradient(90deg, #FF00B8, #004BDD, #8F00FF); /* Gradient from pink to purple */
+            background: linear-gradient(90deg, #FF00B8, #004BDD, #8F00FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero p {
@@ -87,8 +87,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.3); /* Lower opacity for black bar */
-            backdrop-filter: blur(10px); /* Increased blur effect */
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
             border-radius: 50px;
             padding: 15px;
             width: 90%;
@@ -104,38 +104,21 @@
             padding: 10px 20px;
             width: 100%;
             max-width: 450px;
-            position: relative;
         }
 
         .search-bar input {
             width: 100%;
             padding: 12px 20px;
             font-size: 16px;
-            border: none; /* Removed the border */
+            border: none;
             border-radius: 30px;
-            background: transparent; /* Transparent background to match the white box */
-            box-shadow: none; /* Removed shadow */
-            outline: none; /* Removed outline */
+            outline: none;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            background-color: #fff; /* Set background to white when focused */
         }
 
         .search-bar input::placeholder {
-            color: #aaa; /* Light grey placeholder */
-            font-style: italic; /* Italicized placeholder */
-        }
-
-        .search-bar .icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #333;
+            color: #aaa;
+            font-style: italic;
         }
 
         .fancy-button {
@@ -167,7 +150,6 @@
             margin: 0;
         }
 
-        /* Prediction content (hidden until plot is ready) */
         #prediction-container {
             display: none;
             text-align: center;
@@ -192,11 +174,10 @@
 
             .hero p {
                 font-size: 14px;
-                max-width: 100%;
             }
 
             .search-bar-wrapper {
-                width: 90%;
+                width: 100%;
                 padding: 12px;
             }
 
@@ -205,13 +186,26 @@
                 padding: 10px 18px;
             }
 
-            .search-bar input {
-                max-width: 100%;
-                font-size: 14px;
-            }
-
             .footer-info {
                 font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            .search-bar-wrapper {
+                padding: 10px;
+            }
+
+            .fancy-button {
+                padding: 8px 15px;
             }
         }
     </style>
@@ -220,51 +214,29 @@
     <header>
         <div class="logo">Sentisonar</div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('aboutus') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
 
     <div class="hero">
         <p>A tool made for Event Rating</p>
-        <h1>Predictive Analysis by<br><span>using Sentisonar</span></h1><br />
-
+        <h1>Predictive Analysis by<br><span>using Sentisonar</span></h1>
         <form action="/search" method="post" class="search-bar-wrapper">
             <div class="search-bar">
                 <input type="text" id="search_text" name="search_text" placeholder="Search for events..." required>
                 <button type="submit" class="fancy-button">Search</button>
             </div>
-        </form><br />
+        </form>
         <div class="footer-info">
             <p>Please be patient! Prediction may take 5-10 mins to finish.</p>
         </div>
     </div>
 
-    <!-- Prediction content (hidden until plot is ready) -->
-    <div id="prediction-container" style="display: { 'block' if plot_ready else 'none' }">
+    <div id="prediction-container">
         <h1>Sentiment Trend Prediction</h1>
         <img src="{{ plot_url }}" alt="Forecast Plot">
     </div>
-
-    <script>
-        // Get the search input and icon elements
-        const searchInput = document.getElementById('searchInput');
-        const searchIcon = document.getElementById('searchIcon');
-    
-        // Add an event listener to the input for focus
-        searchInput.addEventListener('focus', () => {
-            // Hide the icon and placeholder text when input is focused
-            searchIcon.style.display = 'none';
-            searchInput.placeholder = '';
-        });
-    
-        // Add an event listener to the input for blur (when focus is lost)
-        searchInput.addEventListener('blur', () => {
-            // Show the icon and placeholder text again when input loses focus
-            searchIcon.style.display = 'inline';
-            searchInput.placeholder = 'Search';
-        });
-    </script>
 </body>
 </html>

@@ -16,6 +16,7 @@
             align-items: center;
             min-height: 100vh;
             color: #fff; /* White text color */
+            box-sizing: border-box;
         }
 
         header {
@@ -85,6 +86,11 @@
             max-width: 800px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-content:hover {
+            transform: scale(1.02);
         }
 
         .about-content h2 {
@@ -104,6 +110,7 @@
             font-size: 14px;
             margin-top: 20px;
             color: #ddd;
+            text-align: center;
         }
 
         .footer-info p {
@@ -112,6 +119,12 @@
 
         /* Responsive styles */
         @media (max-width: 768px) {
+            header nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
             .about-hero h1 {
                 font-size: 24px;
             }
@@ -128,7 +141,26 @@
                 font-size: 22px;
             }
 
+            .about-content p {
+                font-size: 14px;
+            }
+
             .footer-info {
+                font-size: 12px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 20px;
+            }
+
+            .about-content h2 {
+                font-size: 18px;
+            }
+
+            .about-content p {
                 font-size: 12px;
             }
         }
@@ -138,9 +170,9 @@
     <header>
         <div class="logo">Sentisonar</div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('aboutus') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
 

@@ -16,6 +16,7 @@
             align-items: center;
             min-height: 100vh;
             color: #fff; /* White text color */
+            box-sizing: border-box;
         }
 
         header {
@@ -84,6 +85,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         .contact-info {
@@ -92,6 +94,11 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover {
+            transform: scale(1.05);
         }
 
         .contact-info img {
@@ -119,6 +126,7 @@
             font-size: 14px;
             margin-top: 20px;
             color: #ddd;
+            text-align: center;
         }
 
         .footer-info p {
@@ -127,6 +135,12 @@
 
         /* Responsive styles */
         @media (max-width: 768px) {
+            header nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
             .contact-hero h1 {
                 font-size: 24px;
             }
@@ -135,17 +149,37 @@
                 font-size: 14px;
             }
 
-            .contact-info {
-                width: 90%;
-                padding: 15px;
+            .contact-info img {
+                width: 120px;
+                height: 120px;
             }
 
             .contact-info h2 {
                 font-size: 20px;
             }
 
+            .contact-info p {
+                font-size: 14px;
+            }
+
             .footer-info {
                 font-size: 12px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 20px;
+            }
+
+            .contact-info img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-info h2 {
+                font-size: 18px;
             }
         }
     </style>
@@ -154,9 +188,9 @@
     <header>
         <div class="logo">Sentisonar</div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('aboutus') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
 
@@ -165,35 +199,32 @@
         <p>We'd love to hear from you! Get in touch with any of our team members below.</p>
     </div>
 
-    <div class="contact-info-container">
+    <div class="contact-info-container" style="color:black">
         <!-- Contact 1 -->
         <div class="contact-info">
-            <img src="https://via.placeholder.com/150" alt="Profile Picture 1">
-            <h2>John Doe</h2>
+            <h2>Angelu Sofia Braganza</h2>
             <p class="info-label">Email:</p>
-            <p>johndoe@example.com</p>
+            <p>bat0545@dlsud.edu.ph</p>
             <p class="info-label">Cellphone:</p>
-            <p>(123) 456-7890</p>
+            <p>0947 1066 752</p>
         </div>
 
         <!-- Contact 2 -->
         <div class="contact-info">
-            <img src="https://via.placeholder.com/150" alt="Profile Picture 2">
-            <h2>Jane Smith</h2>
+            <h2>Felixandre L. Audije</h2>
             <p class="info-label">Email:</p>
-            <p>janesmith@example.com</p>
+            <p>afl0293@dlsud.edu.ph</p>
             <p class="info-label">Cellphone:</p>
-            <p>(234) 567-8901</p>
+            <p>0939 5036 227</p>
         </div>
 
         <!-- Contact 3 -->
         <div class="contact-info">
-            <img src="https://via.placeholder.com/150" alt="Profile Picture 3">
-            <h2>Mark Johnson</h2>
+            <h2>Jai Daniel M. Lamadrid</h2>
             <p class="info-label">Email:</p>
-            <p>markjohnson@example.com</p>
+            <p>ljm2179@dlsud.edu.ph</p>
             <p class="info-label">Cellphone:</p>
-            <p>(345) 678-9012</p>
+            <p>0947 5690 418</p>
         </div>
     </div>
 
